@@ -10,8 +10,8 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-var modelName = 'XYZ'
-// var duration = parseInt(window.prompt("How many days"));
+var modelName = 'XYZ';
+
 var duration;
 
 
@@ -31,17 +31,18 @@ var duration;
 
 // INSERT YOUR CODE HERE
 function recalculate(){
-    let costLabel = document.getElementById("calculated-cost")
+    let costLabel = document.getElementById("calculated-cost");
     if(modelName == "XYZ"){
-        costLabel.innerHTML= duration*100;
-        document.getElementById('calculated-cost').innerHTML=costLabel
+        costLabel.innerHTML= parseInt(duration)*100;
+        
 
     }
     else{
-        costLabel.innerHTML= duration*213;
-        document.getElementById('calculated-cost').innerHTML=costLabel
+        costLabel.innerHTML= parseInt(duration)*213;
+        
 
     }
+   
 }
 
 
@@ -59,23 +60,28 @@ function recalculate(){
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
+var modelButton = document.getElementById('model-button');
 modelButton.addEventListener("click", changeModel);
 
 // INSERT YOUR CODE HERE
-var modelButton = document.getElementById('model-button')
+
 function changeModel(){
-    var model_text = document.getElementById('model-text')
+    var model_text = document.getElementById('model-text');
     if (modelName == "XYZ"){
-        modelName = "CPRG"
-        model_text.innerHTML='Model CPRG'
+        modelName = "CPRG";
+        model_text.innerHTML='Model CPRG';
+        recalculate();
     }
     else{
-        modelName = "XYZ"
-        model_text.innerHTML='Model XYZ'
+        modelName = "XYZ";
+        model_text.innerHTML='Model XYZ';
+        recalculate();
 
     }
+    
 
 }
+
     
 
 
@@ -96,15 +102,16 @@ function changeModel(){
 
 // INSERT YOUR CODE HERE
 var durationButton = document.getElementById('duration-button');
+durationButton.addEventListener("click",changeDuration);
 function changeDuration(){
-    var change_Dur = document.getElementById('duration-button')
-    duration = parseInt(window.prompt("Plase enter a duration"))
-    change_Dur.innerHTML=duration
-    recalculate()
-
+    var change_Dur = document.getElementById('duration-text');
+    duration = parseInt(window.prompt("Plase enter a duration"));
+    change_Dur.innerHTML=duration;
+    recalculate();
+    
 
 }
-durationButton.addEventListener("click",durationButton)
+
 
 
 
